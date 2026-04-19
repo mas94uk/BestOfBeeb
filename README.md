@@ -10,7 +10,7 @@ The result is a curated collection of the most popular BBC Micro games, which di
 
 Clone this repository:
 
-    git clone git@github.com:mas94uk/BestOfBeeb.git
+    git clone https://github.com/mas94uk/BestOfBeeb.git    
     cd BestOfBeeb
 
 Create a virtual environment with the dependencies:
