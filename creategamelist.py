@@ -91,7 +91,9 @@ games_elem = ET.Element("gameList")
 
 for gameDetail in gameDetails:
     game_elem = ET.Element("game")
-    
+
+    # Different menus show different fields. Fill them in as best we can.
+        
     path_elem = ET.Element("path")
     filename = os.path.basename(gameDetail["download_path"])
     path_elem.text = f"./{filename}"
@@ -102,8 +104,25 @@ for gameDetail in gameDetails:
     name_elem.text = gameDetail["title"]
     game_elem.append(name_elem)
     
+    pub_elem = ET.Element("publisher")
+    pub_elem.text = gameDetail["publisher"]
+    game_elem.append(pub_elem)
+
+    developer_elem = ET.Element("developer")
+    developer_elem.text = gameDetail["publisher"]
+    game_elem.append(developer_elem)
+    
+    try:
+        year = int(gameDetail["year"])
+        releasedate_elem = ET.Element("releasedate")
+        releasedate_elem.text = f"{year:04}0101T000000" # Assusme 1st Jan, since we don't know
+        game_elem.append(releasedate_elem)
+    except ValueError:
+        # Some games don't have a valid release date; skip it
+        pass
+
     desc_elem = ET.Element("desc")
-    desc_elem.text = f"{gameDetail["publisher"]} {gameDetail["year"]}"
+    desc_elem.text = f"Publisher: {gameDetail["publisher"]} ({gameDetail["year"]})"
     game_elem.append(desc_elem)
     
     image_elem = ET.Element("image")
@@ -111,6 +130,11 @@ for gameDetail in gameDetails:
     image_elem.text = f"./{image_filename}"
     game_elem.append(image_elem)
     gameDetail["img_filename"] = image_filename
+
+    # Don't have anything useful to put in genre    
+    # genre_elem = ET.Element("genre")
+    # genre_elem.text = ""
+    # game_elem.append(genre_elem)
     
     games_elem.append(game_elem)
 
