@@ -2,7 +2,7 @@
 
 Generate a curated collection of the best BBC Micro games.
 
-Downloads the top (most played) games and their screenshots from [The Complete BBC Micro Games Archive](bbcmicro.co.uk), and creates a `gamelist.xml` for EmulationStation (used in Batocera, RetroPie, Recalbox and other distributions).
+Downloads the top (most played) games and their screenshots from [The Complete BBC Micro Games Archive](https://bbcmicro.co.uk/), and creates a `gamelist.xml` for EmulationStation (used in Batocera, RetroPie, Recalbox and other distributions).
 
 The result is a curated collection of the most popular BBC Micro games, which display nicely in EmulationStaton.
 
@@ -10,7 +10,7 @@ The result is a curated collection of the most popular BBC Micro games, which di
 
 Clone this repository:
 
-    git clone git@github.com:mas94uk/BestOfBeeb.git
+    git clone https://github.com/mas94uk/BestOfBeeb.git    
     cd BestOfBeeb
 
 Create a virtual environment with the dependencies:
